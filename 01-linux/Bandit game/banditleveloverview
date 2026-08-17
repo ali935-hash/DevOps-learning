@@ -1,0 +1,227 @@
+
+; 1.	Bandit Level 0 --> 1
+; Challenge: “The password for the next level is stored in a file called readme located in the home directory.”
+
+; Solution: cat readme
+
+; Explanation:
+; ‘cat’ File viewing of full content
+; ‘readme’ requested filename which contains this levels password
+
+; Password: 6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR
+
+; What I learned: Linux has quick commands for small to large tasks
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+ 
+; 2.	Bandit Level 1 --> 2
+; Challenge: “The password for the next level is stored in a file called - located in the home directory”
+
+; Solution: cat ./-
+
+; Explanation:
+; ‘cat’ File viewing of full content
+; ‘./’ means current directory
+; ‘-‘ requested filename which contains this levels password
+
+; Password: PK8fYLZg2hnHSz83plBL1iEPKdD3QToB
+
+; What I learned: Ensuring you are in the correct directory is key
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+ 
+; 3.	Bandit Level 2 --> 3
+; Challenge: The password for the next level is stored in a file called -spaces in this filename-- located in the home directory.
+
+; Solution: cat ./ “--spaces in this filename--"
+
+; Explanation:
+; ‘cat’ File viewing of full content
+; ‘./’ means current directory
+; “” when a file has spaces, you can use speech marks to search effectively
+; ‘--spaces in this filename--’ requested filename which contains this levels password
+
+; Password: 7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
+
+; What I learned: ensuring you use speech marks to get all possible outcomes.
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+
+; 4.	Bandit Level 3 --> 4
+; Challenge: The password for the next level is stored in a hidden file in the inhere directory.
+
+; Solution: cd inhere
+; ls -a
+; cat ./"...Hiding-From-You"
+
+; Explanation:
+; ‘cd inhere’ change directory to inhere
+; ‘ls -a’ lists all files including hidden ones
+; ‘cat’ file viewing of full content
+; ‘./’ means current directory
+; ‘“”’ when a file has spaces, you can use speech marks to search effectively
+; ‘...Hiding-From-You’ requested filename which contains this levels password
+
+; Password: xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq
+
+; What I learned: remembering that some files and directories are hidden so use ls -a
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+ 
+; 5.	Bandit Level 4 --> 5
+; Challenge: The password for the next level is stored in the only human-readable file in the inhere directory.
+
+; Solution:
+; ls
+; cd inhere
+; ls -a
+; cat ./"--file07 "
+
+; Explanation:
+; ‘ls’ basic list files
+; ‘cd inhere’ change directory to inhere
+; ‘ls -a’ lists all files including hidden ones
+; ‘cat’ file viewing of full content
+; ‘./’ means current directory
+; ‘“”’ when a file has spaces, you can use speech marks to search effectively
+; ‘--file07’ requested filename which contains this levels password, did this complete command for each file name, file 7 was the only human readable one.
+
+; Password: 6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG
+
+; What I learned: At this stage of learning some tasks may seem long winded but with future scripting and automation this becomes more efficient.
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+
+; 6.	Bandit Level 5 --> 6
+; Challenge: The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties: human-readable, 1033 bytes in size, not executable
+
+; Solution: cat "$(find inhere -type f -size 1033c ! -executable)"
+
+; Explanation:
+; ‘cat’ file viewing of full content
+; ‘”$”’ command substitution, Runs the command inside the parentheses and substitute its output here. when a file may have spaces, you can use speech marks to search effectively
+; ‘Find’ search for something
+; ‘Inhere’ search starting in the inhere directory
+; ‘-type f’ only regular files
+; ‘-size 1033c’ exactly 1033 bytes
+; ‘! -executable’ not executable
+
+; Password: pXa26xhMWaC2SvDotA4r9EgZkulOeSBW
+
+; What I learned: that files will have masses of data so being efficient in search is key.
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+
+; 7.	Bandit Level 6 --> 7
+; Challenge: The password for the next level is stored somewhere on the server and has all of the following properties: owned by user bandit7, owned by group bandit6, 33 bytes in size
+
+; Solution: find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+; cat /var/lib/dpkg/info/bandit7.password
+
+; Explanation:
+; ‘-type f’ regular files only
+; ‘-user bandit7’ owned by bandit7
+; ‘-group bandit6’ owned by group bandit6
+; ‘-size 33c’ exactly 33 bytes
+; ‘2>/dev/null’ hides permission-denied errors
+; ‘cat /var/lib/dpkg/info/bandit7.password’ reads the file which it is located in
+
+; Password: Bmnnvf82KzQlfxgAI2d1zYbr1u9pr3E3
+
+; What I learned: adding ‘2>/dev/null’ allows our simple search request not to be stopped by permission denied messages.
+
+; Screenshot of level completion: in imagesofcompletion folder
+ 
+
+; 8.	Bandit Level 7 --> 8
+; Challenge: The password for the next level is stored in the file data.txt next to the word millionth.
+
+; Solution: grep "millionth" data.txt
+
+; Explanation: ‘grep’ used to search for specific content within a file
+; ‘"millionth" data.txt’ is the exact word which is being searched for in the data.txt file.
+
+; Password: VR1ljMayciFxbnUokuQmJFw6QC9VKtub
+
+; What I learned: being agile with simple Linux inputs will make simple tasks in large data sets easy.
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+
+; 9.	Bandit Level 8 --> 9
+; Challenge: The password for the next level is stored in the file data.txt and is the only line of text that occurs only once.
+
+; Solution: sort data.txt | uniq -u
+
+; Explanation:
+; ‘sort’  takes all the lines in data.txt and puts them in alphabetical/numerical order.
+; ‘|’ Take the output from the command on the left and give it to the command on the right.
+; ‘uniq’ looks at repeated lines and deals with duplicates.
+; ‘-u’ Only output lines that are unique.
+
+; Password: EjmOSvuAu7sGAHqHVcBDPirRe9T03kxl
+
+; What I learned: Linux has many handy inbuilt commands to sort data.
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+
+; 10.	Bandit Level 9 --> 10
+; Challenge: The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several'=' characters.
+
+; Solution: strings data.txt | grep "==="
+
+; Explanation:
+; ‘strings data.txt’ — extracts sequences of human-readable characters from data.txt. This is useful when cat data.txt gives you lots of garbage because the file contains binary data.
+; ‘|’ — takes the output of strings and passes it into the next command.
+; ‘grep "==="’ — searches that readable text for lines containing several = characters.
+
+; Password: B0s2khmbT9u0geKuOoVGW3JZKhndE3BG
+
+; What I learned: Linux has many handy packages to handle data.
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+
+; 11.	Bandit Level 10 --> 11
+; Challenge: The password for the next level is stored in the file data.txt, which contains base64 encoded data.
+
+; Solution: base64 -d data.txt
+
+; Explanation: 
+; ‘base64’ the Linux program for encoding/decoding Base64.
+; ‘-d’ means decode.
+; ‘data.txt’ the file you want to decode.
+
+; Password: pYfOY6HwUsDj5rL9UvyhU7MCmv8vN5Ro
+
+; What I learned: When you use ‘cat’ to read a encoded message it may have an = sign at the end.
+
+; Screenshot of level completion: in imagesofcompletion folder
+
+ 
+; 12.	Bandit Level 11 --> 12
+; Challenge: The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions.
+
+; Solution:
+; tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
+; This is ROT13. Every letter has been shifted 13 positions through the alphabet. a → n b → o c → p
+
+; Explanation:
+; ‘tr’ = translate characters from one set to another.
+; 'A-Za-z' = all uppercase and lowercase letters.
+; 'N-ZA-Mn-za-m' = the letters shifted by 13 positions.
+; < data.txt = feeds the contents of data.txt into tr.
+
+; Password: GROozWPO8QyN0mGrjUkID0WCYkZiQxrN
+
+; What I learned: You can see in the level completion how different the pre translation text is.
+
+; Screenshot of level completion: in imagesofcompletion folder
+

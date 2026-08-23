@@ -1,46 +1,41 @@
-🌐 Core Assignment — Domain + EC2 + DNS
+# 🌐 Core Assignment — Domain + EC2 + DNS
 
-🎯 Objective
-This project demonstrates the fundamental concepts of IP addresses, DNS, routing, ports, cloud hosting, and web servers.
+## 🎯 Objective
+
+This project demonstrates the fundamental concepts of **IP addresses, DNS, routing, ports, cloud hosting, and web servers**.
 
 The objective was to:
-🌍 Configure a custom domain
-☁️ Launch an AWS EC2 instance
-🖥️ Install and run NGINX
-🔐 Configure the EC2 Security Group
-🔗 Connect the domain to the EC2 instance using DNS
-🌐 Access the NGINX landing page through the custom domain
 
-🏗️ Architecture
-                    🌐 Custom Domain
-                    │
-                    │ DNS A Record
-                    ▼
-             ┌─────────────────┐
-             │   EC2 Public    │
-             │   IPv4 Address  │
-             └────────┬────────┘
-                      │
-                      │ HTTP :80
-                      ▼
-             ┌─────────────────┐
-             │      NGINX      │
-             │   Web Server    │
-             └────────┬────────┘
-                      │
-                      ▼
-              🖥️ NGINX Landing Page
+- 🌍 Configure a custom domain
+- ☁️ Launch an AWS EC2 instance
+- 🖥️ Install and run NGINX
+- 🔐 Configure the EC2 Security Group
+- 🔗 Connect the domain to the EC2 instance using DNS
+- 🌐 Access the NGINX landing page through the custom domain
 
-🛠️ Technologies Used
-Technology	Purpose
-☁️ AWS EC2	Cloud virtual server
-🐧 Amazon Linux	Operating system
-🌐 NGINX	Web server
-🔗 DNS	Domain name resolution
-📍 A Record	Maps domain to IPv4 address
-🌍 HTTP / Port 80	Web traffic
-🔐 Security Groups	Controls inbound/outbound traffic
-💻 SSH	Remote access to EC2
+---
+
+## 🏗️ Architecture
+
+```text
+                 🌐 Custom Domain
+                        │
+                        │ DNS A Record
+                        ▼
+              ┌─────────────────┐
+              │   EC2 Public    │
+              │   IPv4 Address  │
+              └────────┬────────┘
+                       │
+                       │ HTTP :80
+                       ▼
+              ┌─────────────────┐
+              │      NGINX      │
+              │   Web Server    │
+              └────────┬────────┘
+                       │
+                       ▼
+             🖥️ NGINX Landing Page
 
 
 1. 🌍 Domain Configuration
